@@ -6,7 +6,8 @@ wheel>=0.29
 os
 
 # data science
-numpy
+six==1.14.0
+numpy==1.18.5
 pandas
 scikit-learn
 tensorflow
@@ -18,18 +19,24 @@ imghdr
 tqdm
 PIL
 
+
 # tests/linter
 black
 coverage
 flake8
 pytest
 yapf
+python-gitlab
 
 # API
 gcsfs
 google-cloud-storage
 mlflow
 s3fs
+uvicorn
+fastapi
+requests
+streamlit
 
 # utilities
 six>=1.14
