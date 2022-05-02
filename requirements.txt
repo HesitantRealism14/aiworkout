@@ -3,11 +3,20 @@ pip>=9
 setuptools>=26
 twine
 wheel>=0.29
+os
 
 # data science
 numpy
 pandas
 scikit-learn
+tensorflow
+
+#img
+matplotlib
+cv2
+imghdr
+tqdm
+PIL
 
 # tests/linter
 black
