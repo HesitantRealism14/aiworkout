@@ -13,10 +13,8 @@ tensorflow
 
 #img
 matplotlib
-cv2
-imghdr
 tqdm
-PIL
+pillow
 
 
 # tests/linter
