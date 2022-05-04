@@ -15,15 +15,11 @@ pillow
 
 # tests/linter
 
-
 # API
-# gcsfs
-# google-cloud-storage
-# uvicorn
 requests
 streamlit
 
 # utilities
-# joblib
-# memoized-property
-# termcolor
+opencv-python
+mediapipe
+numpy==1.18.5
