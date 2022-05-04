@@ -8,7 +8,7 @@ st.markdown('''
 # AI Workout Assistant
 ''')
 
-local_url = 'http://127.0.0.1:1234'
+local_url = 'https://predictionapi-fja4gelnpq-ew.a.run.app'
 
 angle_ranges = {
     'squat': range(40, 47),
