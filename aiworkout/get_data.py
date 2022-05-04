@@ -8,7 +8,7 @@ import tensorflow as tf
 from tensorflow.keras.utils import to_categorical
 
 GCP_BUCKET_PATH = ""
-LOCAL_IMG_PATH = "raw_data/train"
+LOCAL_IMG_PATH = "raw_data/train_img"
 
 def get_img(local=True,**kwargs):
 
