@@ -4,14 +4,11 @@ from get_data import get_img
 
 #libraries
 import numpy as np
+import joblib
 
 import tensorflow as tf
 from tensorflow.keras.applications.vgg16 import VGG16
-from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, AveragePooling2D, Flatten
 from tensorflow.keras import Sequential, layers
-from tensorflow.keras import optimizers
-from tensorflow.keras.callbacks import EarlyStopping
-from tensorflow.keras.layers.experimental.preprocessing import Rescaling
 
 from sklearn.model_selection import train_test_split
 
@@ -59,14 +56,24 @@ class Trainer():
 
         return accuracy
 
+    def save_model(self):
+        joblib.dump(self.model,'vggmodel.joblib')
+        print('vggmodel saved locally')
+
 
 if __name__ == "__main__":
 
     X , y = get_img()
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
-    trainer = Trainer(X_train,y_train)
+    trainer = Trainer(X=X_train,y=y_train)
+
+    print('Training Model')
     trainer.run()
 
+    print('Evaluate Model')
     acc = trainer.evaluate(X_test,y_test)
     print(acc)
+
+    print('Save Model')
+    trainer.save_model()
