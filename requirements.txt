@@ -20,3 +20,5 @@ streamlit
 # utilities
 mediapipe
 numpy==1.18.5
+
+opencv-python
