@@ -4,18 +4,12 @@ import numpy as np
 from tqdm import tqdm
 from PIL import Image
 
-import tensorflow as tf
-from tensorflow.keras.utils import to_categorical
 
-GCP_BUCKET_PATH = ""
-LOCAL_IMG_PATH = "raw_data/train_img"
 
-def get_img(local=True,**kwargs):
+GCP_PATH = "gs://"
+LOCAL_PATH = "raw_data/train_img/"
 
-    if local:
-        data_path = LOCAL_IMG_PATH
-    else:
-        data_path = GCP_BUCKET_PATH
+def get_img(data_path):
 
     classes = {'bench':0,
                'deadlift':1,
@@ -35,14 +29,11 @@ def get_img(local=True,**kwargs):
                 labels.append(i)
 
     X = np.array(imgs)
-    num_classes = len(set(labels))
-    y = to_categorical(labels,num_classes)
-
-    p = np.random.permutation(len(X))
-    X,y = X[p],y[p]
+    y = np.array(labels)
 
     return X,y
 
 if __name__ == "__main__":
 
-    X,y = get_img()
+    X,y = get_img(LOCAL_PATH)
+    print(len(X),len(y))

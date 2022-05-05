@@ -7,11 +7,9 @@ wheel>=0.29
 # data science
 six==1.14.0
 
-
 #img
 tqdm
 pillow
-
 
 # tests/linter
 
