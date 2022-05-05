@@ -23,3 +23,7 @@ streamlit
 opencv-python
 mediapipe
 numpy==1.18.5
+
+ffmpeg
+libsm6
+libxext6
