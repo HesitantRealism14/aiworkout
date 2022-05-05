@@ -3,7 +3,6 @@
 from get_data import get_img
 
 #libraries
-import numpy as np
 import joblib
 
 import tensorflow as tf
@@ -11,6 +10,11 @@ from tensorflow.keras.applications.vgg16 import VGG16
 from tensorflow.keras import Sequential, layers
 
 from sklearn.model_selection import train_test_split
+from tensorflow.keras.utils import to_categorical
+
+GCP_PATH = "gs://"
+LOCAL_PATH = "raw_data/train_img/"
+
 
 class Trainer():
 
@@ -49,7 +53,7 @@ class Trainer():
         self.model.fit(self.X,self.y)
 
 
-    def evaluate(self,X_test,y_test):
+    def get_accuracy(self,X_test,y_test):
 
         res = self.model.evaluate(X_test,y_test)
         accuracy = round(res[-1],2)
@@ -63,7 +67,10 @@ class Trainer():
 
 if __name__ == "__main__":
 
-    X , y = get_img()
+    X , y = get_img(LOCAL_PATH)
+    num_classes = len(set(y))
+    y = to_categorical(y,num_classes)
+
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
     trainer = Trainer(X=X_train,y=y_train)
@@ -72,7 +79,7 @@ if __name__ == "__main__":
     trainer.run()
 
     print('Evaluate Model')
-    acc = trainer.evaluate(X_test,y_test)
+    acc = trainer.get_accuracy(X_test,y_test)
     print(acc)
 
     print('Save Model')
