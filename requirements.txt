@@ -20,8 +20,5 @@ requests
 streamlit
 
 # utilities
-opencv-python
 mediapipe
 numpy==1.18.5
-
-ffmpeg
