@@ -8,7 +8,6 @@ wheel>=0.29
 six==1.14.0
 
 #img
-tqdm
 pillow
 
 # tests/linter
@@ -18,7 +17,6 @@ requests
 streamlit
 
 # utilities
-mediapipe
 numpy==1.18.5
 
 opencv-python-headless==4.2.0.32
