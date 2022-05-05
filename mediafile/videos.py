@@ -7,13 +7,13 @@ import Posenangle as pm
 
 
 pose_ =str(input("Enter your exercise : "))
-cap = cv2.VideoCapture('test/production ID_4945133.mp4')
+cap = cv2.VideoCapture('test/female-.mp4')
 detector = pm.poseDetector()
 while True:
 
     ref, img = cap.read()
     #img = cv2.resize(img, (1280,720))
-    img = detector.findPose(img, False)
+    img = detector.findPose(img)
     lmList = detector.findPosition(img , False)
     #print(lmList)
     if len(lmList) != 0:
@@ -21,7 +21,7 @@ while True:
             ####################
             #---------------------#
             R_angle = detector.findAngle(img, 24, 26, 28)
-            L_angle = detector.findAngle(img, 23, 25, 27)
+            L_angle = detector.findAngle(img, 12, 24, 26)
             #----------------------#
             #getting the max and min range of motion in our pose
             percent_ = np.interp(R_angle,(179,280),(0,100))
