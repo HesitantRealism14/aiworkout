@@ -11,9 +11,9 @@ st.markdown('''
 local_url = 'https://predictionapi-fja4gelnpq-ew.a.run.app'
 
 angle_ranges = {
-    'squat': range(40, 47),
+    'squat': range(0, 181),
     'deadlift': range(43, 181),
-    'bench': range(149, 160)
+    'bench': range(149, 181)
 }
 
 if 'selected_pose' not in st.session_state:
