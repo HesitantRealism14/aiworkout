@@ -1,14 +1,14 @@
 
 from get_data import get_img
-
-import joblib
+import os
 import numpy as np
+import tensorflow as tf
 from tensorflow.keras.utils import to_categorical
 
 GCP_TEST_PATH = "gs://"
 LOCAL_TEST_PATH = "raw_data/test_img"
 
-PATH_TO_LOCAL_MODEL = 'model.joblib'
+PATH_TO_LOCAL_MODEL = 'vggmodel.h5'
 
 def get_test_img(data_path):
 
@@ -18,9 +18,9 @@ def get_test_img(data_path):
 
     return X_test,y_test
 
-def get_model(path_to_joblib):
+def get_model(path_to_model):
 
-    model = joblib.load(path_to_joblib)
+    model = tf.keras.models.load_model(path_to_model)
 
     return model
 
@@ -38,6 +38,7 @@ def get_result(y,y_pred):
 
 
 if __name__ == "__main__":
+    os.chdir('../')
     X_test,y_test = get_test_img(LOCAL_TEST_PATH)
     model = get_model(PATH_TO_LOCAL_MODEL)
     y_pred = model.predict(X_test)

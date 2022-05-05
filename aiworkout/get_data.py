@@ -4,7 +4,7 @@ import numpy as np
 from tqdm import tqdm
 from PIL import Image
 
-
+#os.chdir('../')
 
 GCP_PATH = "gs://"
 LOCAL_PATH = "raw_data/train_img/"
