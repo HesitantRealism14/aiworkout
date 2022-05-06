@@ -48,7 +48,7 @@ if not st.session_state.selected_pose:
                 score = 0
                 if angle_ranges.get(pose)[0] - angle > 0:
                     st.write("Try widening the angle")
-                elif angle - angle_ranges.get(pose)[0] > 0:
+                elif angle - angle_ranges.get(pose)[1] > 0:
                     st.write("Try narrowing your angle")
             else:
                 score = 1
