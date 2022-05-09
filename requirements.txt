@@ -6,18 +6,15 @@ wheel>=0.29
 
 # data science
 six==1.14.0
+numpy==1.18.5
 
 #img
 pillow
-
-# tests/linter
+opencv-python-headless==4.1.2.30
 
 # API
 requests
 streamlit
 
 # utilities
-numpy==1.18.5
-
-opencv-python-headless==4.2.0.32
 mediapipe
