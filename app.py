@@ -20,16 +20,16 @@ if 'uploaded_img' not in st.session_state:
     st.session_state['uploaded_img'] = False
 
 img_file_buffer = st.file_uploader('Choose a file')
-st.image(Image.open(img_file_buffer), caption='Image you uploaded')
-st.session_state['uploaded_img'] = True
+
 
 if img_file_buffer is not None:
-
+    st.image(Image.open(img_file_buffer), caption='Image you uploaded')
+    st.session_state['uploaded_img'] = True
     bytes_data = img_file_buffer.getvalue()
     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
 
     predict_request_url = f"{base_url}/predict_pose"
-    pose = requests.post(predict_request_url, files={'img': bytes_data})
+    pose = requests.post(predict_request_url, files={'img': bytes_data}).json().get('workout pose')
 
     st.write('Your workout pose is: ', pose)
 
