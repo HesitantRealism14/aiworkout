@@ -1,4 +1,7 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+Makefile:116: warning: overriding recipe for target 'clean'
+Makefile:21: warning: ignoring old recipe for target 'clean'
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +9,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May  9 13:51:39 2022
+# Make data base, printed on Mon May  9 18:01:33 2022
 
 # Variables
 
@@ -69,7 +72,7 @@ VSCODE_LOG_STACK = false
 # environment
 PYENV_ROOT = /home/rachel/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-64e3b8aa-755c-491e-a352-bfec43d0e47e.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-8c5619ca-4b05-432a-9c3d-acdc2a4355d5.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -119,6 +122,7 @@ SHLVL = 1
 # default
 MAKE_VERSION := 4.2.1
 # environment
+ 
 USER = rachel
 # makefile
 .DEFAULT_GOAL := install_requirements
@@ -275,10 +279,6 @@ test:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 14):
- 
-Makefile:116: warning: overriding recipe for target 'clean'
-Makefile:21: warning: ignoring old recipe for target 'clean'
-
 	@coverage run -m pytest tests/*.py
 	@coverage report -m --omit="${VIRTUAL_ENV}/lib/python*"
 
@@ -408,6 +408,7 @@ clean:
 run_locally:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 103):
 	@python -m ${PACKAGE_NAME}.${FILENAME}
@@ -461,6 +462,6 @@ install:
 # strcache performance: lookups = 82 / hit rate = 42%
 # hash-table stats:
 # Load=47/8192=1%, Rehash=0, Collisions=1/82=1%
-# Finished Make data base on Mon May  9 13:51:39 2022
+# Finished Make data base on Mon May  9 18:01:33 2022
 
  
