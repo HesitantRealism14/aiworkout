@@ -10,14 +10,16 @@ st.markdown('''
 
 base_url = 'https://predictionapi-fja4gelnpq-ew.a.run.app'
 
-angle_ranges = {
-    'squat': range(0, 181),
-    'deadlift': range(43, 181),
-    'bench': range(149, 181)
-}
+# angle_ranges = {
+#     'squat': range(0, 181),
+#     'deadlift': range(43, 181),
+#     'bench': range(149, 181)
+# }
 
 if 'uploaded_img' not in st.session_state:
     st.session_state['uploaded_img'] = False
+if 'confirmed_pose' not in st.session_state:
+    st.session_state['confirmed_pose'] = False
 
 img_file_buffer = st.file_uploader('Choose a file')
 
@@ -31,28 +33,23 @@ if img_file_buffer is not None:
     predict_request_url = f"{base_url}/predict_pose"
     pose = requests.post(predict_request_url, files={'img': bytes_data}).json().get('workout pose')
 
-    st.write('Your workout pose is: ', pose)
+    option = st.selectbox(f'Your workout pose is: {pose}. Is that correct?',
+                          ('-', 'Yes', 'No'))
 
-    if st.button('Submit'):
+    if option == 'No':
+        pose = st.radio('Please choose your pose for scoring',
+                        ('bench', 'deadlift', 'squat'))
+        option = 'Yes'
+        st.session_state['confirmed_pose'] = True
 
+    if option == 'Yes':
+        st.session_state['confirmed_pose'] = True
+        st.write('One moment...')
         files = {'img': bytes_data}
 
         request_url = f"{base_url}/getangle{pose}"
-        response = requests.post(request_url, files=files)
-        angle = response.json().get('angle')
+        response = requests.post(request_url, files=files).json().get('angle')
 
-        st.write(f"The angle of your pose is {angle}")
-
-        if angle not in angle_ranges.get(pose):
-            score = 0
-            if angle_ranges.get(pose)[0] - angle > 0:
-                st.write("Try widening the angle")
-            elif angle - angle_ranges.get(pose)[1] > 0:
-                st.write("Try narrowing your angle")
-        else:
-            score = 1
-            st.write("Great job!")
-
-        st.write(f"You received a score of {score}")
+        st.write(response)
 
         st.session_state.selected_pose = False
