@@ -9,7 +9,7 @@ Makefile:21: warning: ignoring old recipe for target 'clean'
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May  9 18:01:33 2022
+# Make data base, printed on Tue May 10 09:13:09 2022
 
 # Variables
 
@@ -72,7 +72,7 @@ VSCODE_LOG_STACK = false
 # environment
 PYENV_ROOT = /home/rachel/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-8c5619ca-4b05-432a-9c3d-acdc2a4355d5.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-a7d6ea80-8426-49ff-84dd-ff897cd2eca5.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -90,9 +90,9 @@ PWD = /home/rachel/aiworkout
 # environment
 SSH_AGENT_PID = 119
 # environment
-WSL_INTEROP = /run/WSL/26462_interop
+WSL_INTEROP = /run/WSL/13130_interop
 # environment
-WT_SESSION = dd18adc4-bc13-4aea-941c-935bd78a80b9
+WT_SESSION = a9b16b84-153b-461a-959e-d76346ccd143
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -104,7 +104,7 @@ LOGNAME = rachel
 # environment
 BUNDLER_EDITOR = code
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 PYTHONBREAKPOINT = ipdb.set_trace
 # environment
@@ -122,7 +122,6 @@ SHLVL = 1
 # default
 MAKE_VERSION := 4.2.1
 # environment
- 
 USER = rachel
 # makefile
 .DEFAULT_GOAL := install_requirements
@@ -280,6 +279,7 @@ test:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 14):
 	@coverage run -m pytest tests/*.py
+ 
 	@coverage report -m --omit="${VIRTUAL_ENV}/lib/python*"
 
 gcp_submit_training:
@@ -408,7 +408,6 @@ clean:
 run_locally:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 103):
 	@python -m ${PACKAGE_NAME}.${FILENAME}
@@ -462,6 +461,6 @@ install:
 # strcache performance: lookups = 82 / hit rate = 42%
 # hash-table stats:
 # Load=47/8192=1%, Rehash=0, Collisions=1/82=1%
-# Finished Make data base on Mon May  9 18:01:33 2022
+# Finished Make data base on Tue May 10 09:13:09 2022
 
  
