@@ -10,11 +10,13 @@ numpy==1.18.5
 
 #img
 pillow
-opencv-python-headless==4.1.2.30
+opencv-contrib-python==4.5.5.64
+opencv-python==4.5.5.64
+opencv-python-headless==4.5.5.64
 
 # API
 requests
-streamlit
+streamlit==1.9.0
 
 # utilities
 mediapipe
