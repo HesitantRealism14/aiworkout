@@ -44,8 +44,9 @@ if img_file_buffer is not None:
         # st.session_state['confirmed_pose'] = True
         st.write('One moment...')
         request_url = f"{base_url}/getangle{pose}"
-        response = requests.post(request_url, {'img': bytes_data}).json().get('angle')
-        st.write(response)
+        response = requests.post(request_url, {'img': bytes_data}).json()
+
+        st.write(response.get('angle'))
 
         image = np.array(Image.open(img_file_buffer))
         image_height, image_width, _ = image.shape
