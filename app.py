@@ -1,12 +1,8 @@
 import streamlit as st
 from PIL import Image
 import cv2
-import numpy as np
 import requests
-import mediapipe as mp
-
-mp_drawing = mp.solutions.drawing_utils
-mp_holistic = mp.solutions.holistic
+import numpy as np
 
 st.markdown(
 "### AI Workout Assistant"
@@ -48,17 +44,6 @@ if img_file_buffer is not None:
 
         st.write(response.get('angle'))
 
-        image = np.array(Image.open(img_file_buffer))
-        image_height, image_width, _ = image.shape
-        with mp_holistic.Holistic(static_image_mode=True, model_complexity=2,enable_segmentation=True) as holistic:
-            results = holistic.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-            out_image = image.copy()
-            mp_drawing.draw_landmarks(
-                out_image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
-            mp_drawing.draw_landmarks(
-                out_image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
-            mp_drawing.draw_landmarks(
-                out_image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
-            mp_drawing.draw_landmarks(
-                out_image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
-            st.image(out_image, use_column_width=True)
+        annotate_url = f"{base_url}/annotate"
+        out_image = requests.post(annotate_url, {'img': bytes_data}).json().get('annotated')
+        st.image(out_image)
