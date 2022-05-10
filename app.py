@@ -23,7 +23,6 @@ img_file_buffer = st.file_uploader('Choose a file')
 
 
 if img_file_buffer is not None:
-    st.image(Image.open(img_file_buffer), caption='Image you uploaded')
     st.session_state['uploaded_img'] = True
     bytes_data = img_file_buffer.getvalue()
     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
