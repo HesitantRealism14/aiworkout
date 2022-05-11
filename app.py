@@ -62,7 +62,7 @@ if img_file_buffer is not None:
             annotate_url = f"{base_url}/annotate"
             out_image = requests.post(annotate_url, files={'img': bytes_data}, stream=True).content
             st.image(out_image)
-            score = re.search(r'( \d )', feedback)[0]
+            score = re.search(r'( \d* )', feedback)[0]
             comment = re.search(r'[A-Z].*', feedback)[0]
             st.metric(label="Score", value=score)
         st.write(comment)
