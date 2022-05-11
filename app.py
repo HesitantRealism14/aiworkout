@@ -53,19 +53,28 @@ if img_file_buffer is not None:
     # fetching scoring results
     if option == 'Yes':
         with st.spinner('Wait for it...'):
-            request_url = f"{base_url}/getangle{pose}"
-            # request_url = f"{local_url}/getangle{pose}"
-            response = requests.post(request_url, files={'img': bytes_data}).json()
-            feedback = response.get('angle')
             # display annotated image
-            # annotate_url = f"{local_url}/annotate"
             annotate_url = f"{base_url}/annotate"
             out_image = requests.post(annotate_url, files={'img': bytes_data}, stream=True).content
             st.image(out_image)
+
+            # display score and comments
+            request_url = f"{base_url}/getangle{pose}"
+            response = requests.post(request_url, files={'img': bytes_data}).json()
+            feedback = response.get('angle')
+            cn_request_url = f"{base_url}/getangle{pose}cn"
+            cn_response = requests.post(cn_request_url, files={'img': bytes_data}).json()
+            cn_feedback = cn_response.get('angle')
             score = re.search(r'( \d* )', feedback)[0]
             comment = re.search(r'[A-Z].*', feedback)[0]
             st.metric(label="Score", value=score)
-        st.write(comment)
+
+        # toggle to chinese
+        cn_switch = st.checkbox("切换中文")
+        if cn_switch:
+            st.write(cn_feedback)
+        else:
+            st.write(comment)
 
         if '100' in score:
             st.balloons()
