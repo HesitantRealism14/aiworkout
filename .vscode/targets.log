@@ -9,7 +9,7 @@ Makefile:21: warning: ignoring old recipe for target 'clean'
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue May 10 17:38:17 2022
+# Make data base, printed on Wed May 11 08:54:17 2022
 
 # Variables
 
@@ -72,7 +72,7 @@ VSCODE_LOG_STACK = false
 # environment
 PYENV_ROOT = /home/rachel/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-dda6b2ae-0875-4686-95fe-14e969b47e9d.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-6a026a8b-c5ed-4131-a9be-7bfd92504526.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -90,9 +90,9 @@ PWD = /home/rachel/aiworkout
 # environment
 SSH_AGENT_PID = 116
 # environment
-WSL_INTEROP = /run/WSL/8_interop
+WSL_INTEROP = /run/WSL/19630_interop
 # environment
-WT_SESSION = 72e45d15-de8c-4fbf-b6d6-069f01d1b3bd
+WT_SESSION = f45f2519-8873-4d4f-8845-610e9eee8b61
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -461,6 +461,6 @@ install:
 # strcache performance: lookups = 82 / hit rate = 42%
 # hash-table stats:
 # Load=47/8192=1%, Rehash=0, Collisions=1/82=1%
-# Finished Make data base on Tue May 10 17:38:17 2022
+# Finished Make data base on Wed May 11 08:54:17 2022
 
  
