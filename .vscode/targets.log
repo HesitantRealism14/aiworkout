@@ -1,7 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-Makefile:116: warning: overriding recipe for target 'clean'
-Makefile:21: warning: ignoring old recipe for target 'clean'
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -9,7 +6,7 @@ Makefile:21: warning: ignoring old recipe for target 'clean'
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed May 11 08:54:17 2022
+# Make data base, printed on Wed May 11 15:04:36 2022
 
 # Variables
 
@@ -60,7 +57,7 @@ VSCODE_CWD = /mnt/c/Users/Rachel/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/rachel/.vscode-server/bin/57fd6d0195bb9b9d1b49f6da5db789060795de47/bin/remote-cli:./bin:./node_modules/.bin:/home/rachel/.pyenv/plugins/pyenv-virtualenv/shims:/home/rachel/.rbenv/bin:/home/rachel/.pyenv/plugins/pyenv-virtualenv/shims:/home/rachel/.pyenv/shims:/home/rachel/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Python39/Scripts/:/mnt/c/Python39/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/MinGW/msys/1.0/bin":/mnt/c/Program Files/Git/cmd:/mnt/c/HashiCorp/Vagrant/bin:/mnt/c/Program Files/Calibre2/:/mnt/c/Program Files/Go/bin:/mnt/c/Program Files (x86)/Go/bin:/mnt/c/Program Files/OpenJDK/openjdk-11.0.13_8/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Rachel/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Rachel/AppData/Roaming/npm:/mnt/c/Users/Rachel/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files (x86)/GitHub CLI/:/mnt/c/Exercism:/mnt/c/Users/Rachel/go/bin:/usr/local/sbin
+PATH = /home/rachel/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:./bin:./node_modules/.bin:/home/rachel/.pyenv/plugins/pyenv-virtualenv/shims:/home/rachel/.rbenv/bin:/home/rachel/.pyenv/plugins/pyenv-virtualenv/shims:/home/rachel/.pyenv/shims:/home/rachel/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Python39/Scripts/:/mnt/c/Python39/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/MinGW/msys/1.0/bin":/mnt/c/Program Files/Git/cmd:/mnt/c/HashiCorp/Vagrant/bin:/mnt/c/Program Files/Calibre2/:/mnt/c/Program Files/Go/bin:/mnt/c/Program Files (x86)/Go/bin:/mnt/c/Program Files/OpenJDK/openjdk-11.0.13_8/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Rachel/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Rachel/AppData/Roaming/npm:/mnt/c/Users/Rachel/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files (x86)/GitHub CLI/:/mnt/c/Exercism:/mnt/c/Users/Rachel/go/bin:/usr/local/sbin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
@@ -72,7 +69,7 @@ VSCODE_LOG_STACK = false
 # environment
 PYENV_ROOT = /home/rachel/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-6a026a8b-c5ed-4131-a9be-7bfd92504526.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-f4c4279d-940d-448e-b276-8a75da913e13.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -90,9 +87,9 @@ PWD = /home/rachel/aiworkout
 # environment
 SSH_AGENT_PID = 116
 # environment
-WSL_INTEROP = /run/WSL/19630_interop
+WSL_INTEROP = /run/WSL/13150_interop
 # environment
-WT_SESSION = f45f2519-8873-4d4f-8845-610e9eee8b61
+WT_SESSION = 7c706174-13bb-43f4-9267-65e97f6e0db0
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -220,9 +217,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2064, inode 238374): 21 files, no impossibilities.
+# . (device 2064, inode 238374): 22 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 22 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -280,6 +277,9 @@ test:
 #  recipe to execute (from 'Makefile', line 14):
 	@coverage run -m pytest tests/*.py
  
+Makefile:116: warning: overriding recipe for target 'clean'
+Makefile:21: warning: ignoring old recipe for target 'clean'
+
 	@coverage report -m --omit="${VIRTUAL_ENV}/lib/python*"
 
 gcp_submit_training:
@@ -455,12 +455,12 @@ install:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 47 / storage = 462 B / avg = 9 B
-# current buf: size = 8162 B / used = 462 B / count = 47 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 48 / storage = 473 B / avg = 9 B
+# current buf: size = 8162 B / used = 473 B / count = 48 / avg = 9 B
 
-# strcache performance: lookups = 82 / hit rate = 42%
+# strcache performance: lookups = 83 / hit rate = 42%
 # hash-table stats:
-# Load=47/8192=1%, Rehash=0, Collisions=1/82=1%
-# Finished Make data base on Wed May 11 08:54:17 2022
+# Load=48/8192=1%, Rehash=0, Collisions=1/83=1%
+# Finished Make data base on Wed May 11 15:04:36 2022
 
  
