@@ -1,44 +1,71 @@
 import streamlit as st
 from PIL import Image
 import requests
+import re
 
-st.markdown(
-"### AI Workout Assistant"
+# set page tab display
+st.set_page_config(
+   page_title="Workout",
+   page_icon= ':heart:',
+   layout="wide",
+   initial_sidebar_state="expanded",
 )
 
+# hide menu button
+st.markdown(""" <style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style> """, unsafe_allow_html=True)
+
+
+# app title and description
+st.header('AI Workout Assistant')
+st.sidebar.title('Upload pics📸 of your workout💪 and get instant✨ feedback!')
+
+# API call references
 base_url = 'https://predictionapi-fja4gelnpq-ew.a.run.app'
 local_url = 'http://127.0.0.1:8000'
 
+# user upload
 img_file_buffer = st.file_uploader('Choose a file')
 
-
+# display image user uploaded
 if img_file_buffer is not None:
-    st.image(Image.open(img_file_buffer), caption='Image you uploaded')
-    bytes_data = img_file_buffer.getvalue()
+    st.sidebar.image(Image.open(img_file_buffer), caption='Image you uploaded')
 
-    predict_request_url = f"{base_url}/predict_pose"
-    pose = requests.post(predict_request_url, files={'img': bytes_data}).json().get('workout pose')
+    # spinner while backend fetches pose classification prediction
+    with st.spinner('Wait for it...'):
+        bytes_data = img_file_buffer.getvalue()
+        predict_request_url = f"{base_url}/predict_pose"
+        pose = requests.post(predict_request_url, files={'img': bytes_data}).json().get('workout pose')
 
-    option = st.selectbox(f'Your workout pose is: {pose}. Is that correct?',
-                          ('-', 'Yes', 'No'))
+    st.sidebar.write(f'Your workout pose is: {pose}.')
+
+    # option for user to choose pose if prediction is wrong
+    option = st.sidebar.selectbox('Is that correct?', ('-', 'Yes', 'No'))
 
     if option == 'No':
-        pose = st.radio('Please choose your pose for scoring',
-                        ('bench', 'deadlift', 'squat'))
+        pose = st.sidebar.radio('Please choose your pose for scoring',
+                        ('bench', 'deadlift', 'squat', 'bridge', 'pushup'))
+
         option = 'Yes'
 
-
+    # fetching scoring results
     if option == 'Yes':
-        st.write('One moment...')
-        request_url = f"{base_url}/getangle{pose}"
+        with st.spinner('Wait for it...'):
+            request_url = f"{base_url}/getangle{pose}"
+            # request_url = f"{local_url}/getangle{pose}"
+            response = requests.post(request_url, files={'img': bytes_data}).json()
+            feedback = response.get('angle')
+            # display annotated image
+            # annotate_url = f"{local_url}/annotate"
+            annotate_url = f"{base_url}/annotate"
+            out_image = requests.post(annotate_url, files={'img': bytes_data}, stream=True).content
+            st.image(out_image)
+            score = re.search(r'(\d )', feedback)[0]
+            comment = re.search(r'[A-Z].*', feedback)[0]
+            st.metric(label="Score", value=score)
+        st.write(comment)
 
-        # request_url = f"{local_url}/getangle{pose}"
-        response = requests.post(request_url, files={'img': bytes_data}).json()
-
-        st.write(response.get('angle'))
-
-        # annotate_url = f"{local_url}/annotate"
-        annotate_url = f"{base_url}/annotate"
-
-        out_image = requests.post(annotate_url, files={'img': bytes_data}, stream=True).content
-        st.image(out_image)
+        if '100' in score:
+            st.balloons()
