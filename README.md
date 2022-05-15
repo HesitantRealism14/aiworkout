@@ -1,6 +1,6 @@
 # Data analysis
 - Document here the project: aiworkout
-- Description: Project Description
+- Description: A computer vision web app I collaborated on that characterizes and scores users' workout images on pose correctness
 - Data Source:
 - Type of analysis:
 
